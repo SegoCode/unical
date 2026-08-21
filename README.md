@@ -1,13 +1,5 @@
 # unical
 
-<p align="center">
-  <a href="#about">About</a> •
-  <a href="#features">Features</a> •
-  <a href="#quick-start--information">Quick Start & Information</a> •
-  <a href="#download">Download</a> 
-</p>
-
-## About
 [![Top language](https://img.shields.io/github/languages/top/SegoCode/unical?style=flat-square)](https://github.com/SegoCode/unical)
 [![Repository size](https://img.shields.io/github/repo-size/SegoCode/unical?style=flat-square&label=repo%20size)](https://github.com/SegoCode/unical)
 [![Commit activity per year](https://img.shields.io/github/commit-activity/y/SegoCode/unical?style=flat-square&label=commits)](https://github.com/SegoCode/unical/graphs/commit-activity)
