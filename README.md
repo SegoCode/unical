@@ -30,12 +30,6 @@ A Cloudflare Worker that combines public ICS calendar URL into one calendar feed
 ### Cloudflare
 Connect the GitHub repository `SegoCode/unical` to Cloudflare Workers and use these settings:
 
-| Setting | Value |
-| --- | --- |
-| Root directory | `code` |
-| Build command | Leave empty |
-| Deploy command | `npx wrangler deploy` |
-
 The `code` directory contains `wrangler.toml`, `package.json`, `pnpm-lock.yaml`, the Worker source, and the tests. Wrangler uses `index.ts` as the Worker entry point.
 
 Cloudflare will publish the Worker at a URL similar to:
