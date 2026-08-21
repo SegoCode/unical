@@ -30,8 +30,9 @@ export default {
     const url = new URL(request.url);
     const sources = url.searchParams.getAll("u");
 
-    if (request.method !== "GET" || url.pathname !== "/merge")
-      return new Response("Not found", { status: 404 });
+    if (request.method !== "GET") return new Response("Not found", { status: 404 });
+    if (url.pathname === "/") return new Response("ok");
+    if (url.pathname !== "/merge") return new Response("Not found", { status: 404 });
     if (!sources.length || sources.length > 4)
       return new Response("Provide between 1 and 4 u parameters", { status: 400 });
 
