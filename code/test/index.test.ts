@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 import ICAL from "ical.js";
-import { mergeCalendars } from "../code/index.ts";
+import { mergeCalendars } from "../index.ts";
 
 const feeds = ["andalucia", "japan"].map((name) => ({
   url: `https://www.officeholidays.com/ics/${name === "andalucia" ? "spain/" : ""}${name}`,
