@@ -20,7 +20,8 @@ test("merges real calendars", async () => {
 
   assert.equal(events.length, expected);
   assert.equal(new Set(events.map((event) => event.getFirstPropertyValue("uid"))).size, events.length);
-  assert(summaries.every((summary) => /^Holidays "(Andalucía|Japan): /.test(summary)));
-  assert(summaries.includes('Holidays "Andalucía: Custom Day"'));
+  assert(summaries.every((summary) => /^(Andalucía|Japan): /.test(summary)));
+  assert(summaries.includes("Andalucía: Custom Day"));
   assert.equal(merged.getFirstPropertyValue("x-wr-calname"), "Holidays");
+  assert.equal(merged.getFirstPropertyValue("x-wr-caldesc"), null);
 });
