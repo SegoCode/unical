@@ -2,7 +2,13 @@ import ICAL from "ical.js";
 
 type Feed = { url: string; calendar: ICAL.Component };
 
-export async function mergeCalendars(feeds: Feed[], name: string) {
+export async function mergeCalendars(
+  feeds: Feed[],
+  name: string,
+  description?: string | null,
+  showName = true,
+  showCalendar = true,
+) {
   const merged = feeds[0].calendar;
 
   for (const { url, calendar } of feeds) {
@@ -19,17 +25,20 @@ export async function mergeCalendars(feeds: Feed[], name: string) {
       if (uid?.getFirstValue()) uid.setValue(`${prefix}-${uid.getFirstValue()}`);
       if (component.name === "vevent") {
         const summary = String(component.getFirstPropertyValue("summary") || "");
-        const event = calendarName && !summary.toLowerCase().includes(calendarName.toLowerCase())
-          ? `${calendarName}: ${summary}`
-          : summary;
-        component.updatePropertyWithValue("summary", event);
+        const parts = [
+          showName ? name : "",
+          showCalendar ? calendarName : "",
+          summary,
+        ].filter(Boolean);
+        component.updatePropertyWithValue("summary", parts.join(": "));
       }
       if (calendar !== merged) merged.addSubcomponent(component);
     }
   }
 
   merged.updatePropertyWithValue("x-wr-calname", name);
-  merged.removeProperty("x-wr-caldesc");
+  if (description) merged.updatePropertyWithValue("x-wr-caldesc", description);
+  else merged.removeProperty("x-wr-caldesc");
   return merged.toString();
 }
 
@@ -65,7 +74,13 @@ export default {
     if (!feeds.length) return new Response("All feeds failed", { status: 502 });
 
     const response = new Response(
-      await mergeCalendars(feeds, url.searchParams.get("name") || "Unical"),
+      await mergeCalendars(
+        feeds,
+        url.searchParams.get("name") || "Unical",
+        url.searchParams.get("description"),
+        url.searchParams.get("show_name") !== "false",
+        url.searchParams.get("show_calendar") !== "false",
+      ),
       {
         headers: {
           "content-type": "text/calendar; charset=utf-8",
