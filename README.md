@@ -18,9 +18,7 @@ A Cloudflare Worker that combines public ICS calendar URL into one calendar feed
 ## Quick Start & Information
 
 ### Cloudflare
-Connect the GitHub repository `SegoCode/unical` to Cloudflare Workers and use these settings:
-
-The `code` directory contains `wrangler.toml`, `package.json`, `pnpm-lock.yaml`, the Worker source, and the tests. Wrangler uses `index.ts` as the Worker entry point.
+Connect the GitHub repository `SegoCode/unical` to Cloudflare Workers and use `code` directory that contains `wrangler.toml`, `package.json`, `pnpm-lock.yaml`, the Worker source, and the tests. Wrangler uses `index.ts` as the Worker entry point.
 
 Cloudflare will publish the Worker at a URL similar to:
 
