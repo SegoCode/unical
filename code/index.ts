@@ -6,7 +6,9 @@ export async function mergeCalendars(feeds: Feed[], name: string) {
   const merged = feeds[0].calendar;
 
   for (const { url, calendar } of feeds) {
-    const calendarName = calendar.getFirstPropertyValue("x-wr-calname") || url;
+    const calendarName = String(calendar.getFirstPropertyValue("x-wr-calname") || url)
+      .replace(new RegExp(name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"), "")
+      .trim();
     const prefix = Array.from(
       new Uint8Array(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(url))),
       (byte) => byte.toString(16).padStart(2, "0"),
@@ -15,8 +17,13 @@ export async function mergeCalendars(feeds: Feed[], name: string) {
     for (const component of [...calendar.getAllSubcomponents()]) {
       const uid = component.getFirstProperty("uid");
       if (uid?.getFirstValue()) uid.setValue(`${prefix}-${uid.getFirstValue()}`);
-      if (component.name === "vevent")
-        component.updatePropertyWithValue("summary", `${calendarName}: ${component.getFirstPropertyValue("summary") || ""}`);
+      if (component.name === "vevent") {
+        const summary = String(component.getFirstPropertyValue("summary") || "");
+        const event = calendarName && !summary.toLowerCase().includes(calendarName.toLowerCase())
+          ? `${calendarName}: ${summary}`
+          : summary;
+        component.updatePropertyWithValue("summary", `${name} "${event}"`);
+      }
       if (calendar !== merged) merged.addSubcomponent(component);
     }
   }
