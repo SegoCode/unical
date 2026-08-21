@@ -12,15 +12,13 @@ A Cloudflare Worker that combines public ICS calendar URL into one calendar feed
 
 - Combines up to four ICS feeds into one `text/calendar` response.
 - Fetches source calendars concurrently and caches.
-- Preserves calendar components and uses a stable SHA-256 prefix in event UIDs to prevent collisions between feeds.
+- Preserves calendar components and uses UIDs to prevent collisions between feeds.
 - Labels events with the merged calendar name and source calendar name.
 
 ## Quick Start & Information
 
 ### Cloudflare
-Connect the GitHub repository `SegoCode/unical` to Cloudflare Workers and use `code` directory that contains `wrangler.toml`, `package.json`, `pnpm-lock.yaml`, the Worker source, and the tests. Wrangler uses `index.ts` as the Worker entry point.
-
-Cloudflare will publish the Worker at a URL similar to:
+Connect the GitHub repository to Cloudflare Workers and use `code` directory that contains `wrangler.toml`, `package.json`, `pnpm-lock.yaml`. Wrangler uses `index.ts` as the Worker entry point. Cloudflare will publish the Worker at a URL similar to:
 
 ```text
 https://unical.<subdomain>.workers.dev
