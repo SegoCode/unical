@@ -22,13 +22,14 @@ export async function mergeCalendars(feeds: Feed[], name: string) {
         const event = calendarName && !summary.toLowerCase().includes(calendarName.toLowerCase())
           ? `${calendarName}: ${summary}`
           : summary;
-        component.updatePropertyWithValue("summary", `${name} "${event}"`);
+        component.updatePropertyWithValue("summary", event);
       }
       if (calendar !== merged) merged.addSubcomponent(component);
     }
   }
 
   merged.updatePropertyWithValue("x-wr-calname", name);
+  merged.removeProperty("x-wr-caldesc");
   return merged.toString();
 }
 
