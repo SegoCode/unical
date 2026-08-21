@@ -50,6 +50,9 @@ pnpm run deploy
 | --- | --- | --- |
 | `u` | Yes | Public ICS URL. Repeat it once for each source. Maximum: 4. |
 | `name` | No | Name of the merged calendar and title prefix. Defaults to `Unical`. |
+| `description` | No | Calendar description (`X-WR-CALDESC`). Omitted when missing. |
+| `show_name` | No | Prefix event titles with `name`. `true` or `false`. Default: `true`. |
+| `show_calendar` | No | Prefix event titles with the source calendar name. `true` or `false`. Default: `true`. |
 
 Example:
 
