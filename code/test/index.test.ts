@@ -13,11 +13,14 @@ const feeds = ["andalucia", "japan"].map((name) => ({
 
 test("merges real calendars", async () => {
   const expected = feeds.reduce((n, feed) => n + feed.calendar.getAllSubcomponents("vevent").length, 0);
+  feeds[0].calendar.getFirstSubcomponent("vevent")?.updatePropertyWithValue("summary", "Custom Day");
   const merged = ICAL.Component.fromString(await mergeCalendars(feeds, "Holidays"));
   const events = merged.getAllSubcomponents("vevent");
+  const summaries = events.map((event) => String(event.getFirstPropertyValue("summary")));
 
   assert.equal(events.length, expected);
   assert.equal(new Set(events.map((event) => event.getFirstPropertyValue("uid"))).size, events.length);
-  assert(events.every((event) => /^(Andalucía|Japan) Holidays: /.test(String(event.getFirstPropertyValue("summary")))));
+  assert(summaries.every((summary) => /^Holidays "(Andalucía|Japan): /.test(summary)));
+  assert(summaries.includes('Holidays "Andalucía: Custom Day"'));
   assert.equal(merged.getFirstPropertyValue("x-wr-calname"), "Holidays");
 });
