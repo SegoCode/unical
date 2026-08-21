@@ -1,7 +1,5 @@
 # unical
 
-<h3 align="center"><img src="media/demo.png"></h3>
-
 <p align="center">
   <a href="#about">About</a> •
   <a href="#features">Features</a> •
