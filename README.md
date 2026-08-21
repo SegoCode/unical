@@ -13,59 +13,69 @@
 [![Top language](https://img.shields.io/github/languages/top/SegoCode/unical?style=flat-square)](https://github.com/SegoCode/unical)
 [![Repository size](https://img.shields.io/github/repo-size/SegoCode/unical?style=flat-square&label=repo%20size)](https://github.com/SegoCode/unical)
 [![Commit activity per year](https://img.shields.io/github/commit-activity/y/SegoCode/unical?style=flat-square&label=commits)](https://github.com/SegoCode/unical/graphs/commit-activity)
-[![GitHub downloads](https://img.shields.io/github/downloads/SegoCode/unical/total?style=flat-square&label=downloads)](https://github.com/SegoCode/unical/releases)
-[![Licencia: PolyForm Noncommercial + GNU AGPL-3.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%20%2B%20GNU%20AGPL--3.0-blue?style=flat-square)](https://github.com/SegoCode/unical/blob/main/LICENSE)
+[![License: MIT License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](https://github.com/SegoCode/unical/blob/main/LICENSE)
 [![Bitcoin BTC](https://img.shields.io/badge/buy_me_a_coffee-BTC-F7931A?style=flat-square&logo=bitcoin&logoColor=white)](https://github.com/SegoCode/SegoCode/discussions/2)
 
-
-This section should provide a concise introduction to the application, explaining its primary function and the problem it addresses. 
+A Cloudflare Worker that combines public ICS calendar URL into one calendar feed. Calendar services sometimes limit the number of external calendars that an account can import or subscribe to. Unical gives those services one subscription URL while the Worker fetches and combines up to four source calendars behind it.
 
 ## Features
 
-- Feature 1: Describe the first key feature of the app. Explain how it benefits the user or improves upon existing solutions.
-
-- Feature 2: Describe the second key feature, focusing on its functionality and any integration capabilities with other tools or platforms.
-
-- Feature 3: Outline a third feature, detailing its use case and any user-driven components or customization options.
-
-- Add more features as needed...
+- Combines up to four ICS feeds into one `text/calendar` response.
+- Fetches source calendars concurrently and caches.
+- Preserves calendar components and uses a stable SHA-256 prefix in event UIDs to prevent collisions between feeds.
+- Labels events with the merged calendar name and source calendar name.
 
 ## Quick Start & Information
 
-Provide a simple, step-by-step guide on how to set up and start using the application.
+### Cloudflare
+Connect the GitHub repository `SegoCode/unical` to Cloudflare Workers and use these settings:
 
-> [!NOTE]  
-> Highlights information that users should take into account, even when skimming.
+| Setting | Value |
+| --- | --- |
+| Root directory | `code` |
+| Build command | Leave empty |
+| Deploy command | `npx wrangler deploy` |
 
-> [!TIP]
-> Optional information to help a user be more successful.
+The `code` directory contains `wrangler.toml`, `package.json`, `pnpm-lock.yaml`, the Worker source, and the tests. Wrangler uses `index.ts` as the Worker entry point.
 
-> [!IMPORTANT]  
-> Crucial information necessary for users to succeed.
+Cloudflare will publish the Worker at a URL similar to:
 
-> [!WARNING]  
-> Critical content demanding immediate user attention due to potential risks.
+```text
+https://unical.<subdomain>.workers.dev
+```
 
-> [!CAUTION]
-> Negative potential consequences of an action.
+### Local
+
+```shell
+cd code
+pnpm install
+pnpm dev
+```
+
+Run the test and verify the Wrangler bundle without deploying:
+
+```shell
+pnpm check
+```
+
+Deploy manually with Wrangler:
+
+```shell
+pnpm run deploy
+```
 
 ### Available Parameters
 
-Example 1
+| Parameter | Required | Description |
+| --- | --- | --- |
+| `u` | Yes | Public ICS URL. Repeat it once for each source. Maximum: 4. |
+| `name` | No | Name of the merged calendar and title prefix. Defaults to `Unical`. |
+
+Example:
+
 ```shell
-example.exe -help
-```
-*Describes what happens when the help command is executed.*
-
-Example 2
-```shell
-example.exe -done
-```
-*Explains the outcome when the done command is used.*
-
-## Download
-
-Provide a direct link to where users can download the application
+curl "https://unical.<subdomain>.workers.dev/merge?u=https://www.officeholidays.com/ics/spain/andalucia&u=https://www.officeholidays.com/ics/japan&name=Holidays"
+``` 
 
 ---
 <p align="center"><a href="https://github.com/SegoCode/unical/graphs/contributors">
