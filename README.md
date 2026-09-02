@@ -6,7 +6,7 @@
 [![License: MIT License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](https://github.com/SegoCode/unical/blob/main/LICENSE)
 [![Bitcoin BTC](https://img.shields.io/badge/buy_me_a_coffee-BTC-F7931A?style=flat-square&logo=bitcoin&logoColor=white)](https://github.com/SegoCode/SegoCode/discussions/2)
 
-A Cloudflare Worker that combines public ICS calendar URL into one calendar. Calendar services sometimes limit the number of external calendars that an account can import or subscribe to so this gives those services one subscription URL while the Worker fetches and combines calendars behind it.
+A Cloudflare Worker that combines public ICS calendar URL into one calendar. Calendar services sometimes limit the number of external calendars that an account can import or subscribe to... so this gives those services one subscription URL while the Worker fetches and combines calendars behind it.
 
 ## Features
 
@@ -44,7 +44,7 @@ pnpm run deploy
 
 | Parameter | Required | Description |
 | --- | --- | --- |
-| `u` | Yes | Public ICS URL. Repeat it once for each source. Maximum: 4. |
+| `u` | Yes | Public ICS URL. Repeat it once for each source. |
 | `name` | No | Name of the merged calendar and title prefix. Defaults to `Unical`. |
 | `description` | No | Calendar description (`X-WR-CALDESC`). Omitted when missing. |
 | `show_name` | No | Prefix event titles with `name`. `true` or `false`. Default: `true`. |
