@@ -42,18 +42,18 @@ pnpm run deploy
 
 ### Available Parameters
 
-| Parameter | Required | Description |
-| --- | --- | --- |
-| `u` | Yes | Public ICS URL. Repeat it once for each source. Maximum: 4. |
-| `name` | No | Name of the merged calendar and title prefix. Defaults to `Unical`. |
-| `description` | No | Calendar description (`X-WR-CALDESC`). Omitted when missing. |
-| `show_name` | No | Prefix event titles with `name`. `true` or `false`. Default: `true`. |
-| `show_calendar` | No | Prefix event titles with the source calendar name. `true` or `false`. Default: `true`. |
+| Parameter | Required | Default | Description |
+| --- | --- | --- | --- |
+| `u` | Yes | | Public ICS URL. Repeat it once for each source. Maximum: 4. |
+| `name` | No | `unical` | Name of the merged calendar and title prefix. |
+| `description` | No | | Calendar description (`X-WR-CALDESC`). Omitted when missing. |
+| `show_name` | No | `true` | Prefix event titles with `name`. `true` or `false`. |
+| `show_calendar` | No | `true` | Prefix event titles with the source calendar name. `true` or `false`. |
 
 Example:
 
 ```shell
-curl "https://unical.<subdomain>.workers.dev/merge?u=https://www.officeholidays.com/ics/spain/andalucia&u=https://www.officeholidays.com/ics/japan&name=Holidays"
+curl "https://unical.<subdomain>.workers.dev/merge?u=https://www.officeholidays.com/ics/spain/madrid&u=https://www.officeholidays.com/ics/germany/berlin&name=Holidays"
 ``` 
 
 ---
