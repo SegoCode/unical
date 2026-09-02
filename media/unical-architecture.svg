@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1280 1000" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="unical-architecture-title unical-architecture-desc">
+      <title id="unical-architecture-title">Direct subscribe vs unical</title>
+      <desc id="unical-architecture-desc">Upper flow: a calendar app connects to Madrid, then a second subscribe toward Berlin is cut mid-path by a paywall. Lower flow: the same app gets both ICS feeds through one unical URL.</desc>
+      <defs>
+        <style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500;600&amp;display=swap');</style>
+                <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4f5d75"/></marker>
+        <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#eb6c36"/></marker>
+        <marker id="arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2e5aa8"/></marker>
+        <marker id="stop" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><rect x="2" y="0" width="4" height="8" fill="#2d3142"/></marker>
+      </defs>
+
+      <rect width="100%" height="100%" fill="#f5f5f5"/>
+
+      <text x="1232" y="36" fill="#2d3142" font-size="14" font-style="italic"
+            font-family="'Instrument Serif', serif" text-anchor="end">the second subscribe is the paywall</text>
+
+      <!-- ===== TOP: WITHOUT UNICAL ===== -->
+      <text x="48" y="72" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.14em">WITHOUT UNICAL</text>
+
+      <rect x="48" y="88" width="248" height="336" rx="8"
+            fill="rgba(45,49,66,0.02)" stroke="rgba(45,49,66,0.10)" stroke-width="0.8"/>
+      <rect x="128" y="92" width="88" height="12" rx="2" fill="#f5f5f5"/>
+      <text x="172" y="101" fill="rgba(45,49,66,0.40)" font-size="8" font-family="'Geist Mono', monospace"
+            text-anchor="middle" letter-spacing="0.14em">CLIENT</text>
+
+      <rect x="800" y="88" width="432" height="336" rx="8"
+            fill="rgba(45,49,66,0.02)" stroke="rgba(45,49,66,0.10)" stroke-width="0.8"/>
+      <rect x="972" y="92" width="88" height="12" rx="2" fill="#f5f5f5"/>
+      <text x="1016" y="101" fill="rgba(45,49,66,0.40)" font-size="8" font-family="'Geist Mono', monospace"
+            text-anchor="middle" letter-spacing="0.14em">FEEDS</text>
+
+      <path d="M 272,224 H 640 Q 648,224 648,216 V 168 Q 648,160 656,160 H 848"
+            fill="none" stroke="#2e5aa8" stroke-width="1.2" marker-end="url(#arrow-link)"/>
+      <path d="M 272,268 H 512 Q 520,268 520,276 V 316"
+            fill="none" stroke="#2d3142" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#stop)"/>
+
+      <rect x="416" y="204" width="80" height="12" rx="2" fill="#f5f5f5"/>
+      <text x="456" y="214" fill="#2e5aa8" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">DIRECT OK</text>
+
+      <rect x="536" y="300" width="80" height="12" rx="2" fill="#f5f5f5"/>
+      <text x="576" y="310" fill="#2d3142" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">PAYWALL +1</text>
+
+      <rect x="72" y="200" width="200" height="96" rx="6" fill="#f5f5f5"/>
+      <rect x="72" y="200" width="200" height="96" rx="6" fill="rgba(79,93,117,0.10)" stroke="#7a8399" stroke-width="1"/>
+      <rect x="80" y="208" width="28" height="12" rx="2" fill="transparent" stroke="rgba(122,131,153,0.40)" stroke-width="0.8"/>
+      <text x="94" y="217" fill="#7a8399" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">APP</text>
+      <text x="172" y="248" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Calendar app</text>
+      <text x="172" y="268" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">two ICS URLs</text>
+
+      <rect x="848" y="120" width="336" height="80" rx="6" fill="#f5f5f5"/>
+      <rect x="848" y="120" width="336" height="80" rx="6" fill="rgba(45,49,66,0.03)" stroke="rgba(45,49,66,0.30)" stroke-width="1"/>
+      <rect x="856" y="128" width="28" height="12" rx="2" fill="transparent" stroke="rgba(45,49,66,0.22)" stroke-width="0.8"/>
+      <text x="870" y="137" fill="#7a8399" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">ICS</text>
+      <text x="1016" y="164" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Madrid</text>
+      <text x="1016" y="180" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">/ics/spain/madrid</text>
+
+      <rect x="848" y="300" width="336" height="80" rx="6" fill="#f5f5f5"/>
+      <rect x="848" y="300" width="336" height="80" rx="6" fill="rgba(45,49,66,0.03)" stroke="rgba(45,49,66,0.30)" stroke-width="1"/>
+      <rect x="856" y="308" width="28" height="12" rx="2" fill="transparent" stroke="rgba(45,49,66,0.22)" stroke-width="0.8"/>
+      <text x="870" y="317" fill="#7a8399" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">ICS</text>
+      <text x="1016" y="344" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Berlin</text>
+      <text x="1016" y="360" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">/ics/germany/berlin</text>
+
+      <!-- ===== BOTTOM: VIA UNICAL ===== -->
+      <line x1="48" y1="448" x2="1232" y2="448" stroke="rgba(45,49,66,0.10)" stroke-width="0.8"/>
+      <text x="48" y="476" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.14em">VIA UNICAL</text>
+
+      <rect x="48" y="500" width="248" height="360" rx="8"
+            fill="rgba(45,49,66,0.02)" stroke="rgba(45,49,66,0.10)" stroke-width="0.8"/>
+      <rect x="128" y="504" width="88" height="12" rx="2" fill="#f5f5f5"/>
+      <text x="172" y="513" fill="rgba(45,49,66,0.40)" font-size="8" font-family="'Geist Mono', monospace"
+            text-anchor="middle" letter-spacing="0.14em">CLIENT</text>
+
+      <rect x="336" y="560" width="360" height="300" rx="8"
+            fill="rgba(45,49,66,0.02)" stroke="rgba(45,49,66,0.10)" stroke-width="0.8"/>
+      <rect x="484" y="564" width="64" height="12" rx="2" fill="#f5f5f5"/>
+      <text x="516" y="573" fill="rgba(45,49,66,0.40)" font-size="8" font-family="'Geist Mono', monospace"
+            text-anchor="middle" letter-spacing="0.14em">EDGE</text>
+
+      <rect x="800" y="500" width="432" height="360" rx="8"
+            fill="rgba(45,49,66,0.02)" stroke="rgba(45,49,66,0.10)" stroke-width="0.8"/>
+      <rect x="972" y="504" width="88" height="12" rx="2" fill="#f5f5f5"/>
+      <text x="1016" y="513" fill="rgba(45,49,66,0.40)" font-size="8" font-family="'Geist Mono', monospace"
+            text-anchor="middle" letter-spacing="0.14em">FEEDS</text>
+
+      <line x1="272" y1="668" x2="376" y2="668" stroke="#eb6c36" stroke-width="1.2" marker-end="url(#arrow-accent)"/>
+      <line x1="516" y1="712" x2="516" y2="752" stroke="#4f5d75" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+      <path d="M 656,640 H 720 Q 728,640 728,632 V 632 Q 728,624 736,624 H 848"
+            fill="none" stroke="#2e5aa8" stroke-width="1.2" marker-end="url(#arrow-link)"/>
+      <path d="M 656,696 H 760 Q 768,696 768,704 V 776 Q 768,784 776,784 H 848"
+            fill="none" stroke="#2e5aa8" stroke-width="1.2" marker-end="url(#arrow-link)"/>
+
+      <rect x="288" y="648" width="72" height="12" rx="2" fill="#f5f5f5"/>
+      <text x="324" y="658" fill="#eb6c36" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">GET /MERGE</text>
+
+      <rect x="528" y="724" width="48" height="12" rx="2" fill="#f5f5f5"/>
+      <text x="552" y="734" fill="#7a8399" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">900s</text>
+
+      <rect x="764" y="604" width="40" height="12" rx="2" fill="#f5f5f5"/>
+      <text x="784" y="614" fill="#2e5aa8" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">FETCH</text>
+
+      <rect x="720" y="728" width="40" height="12" rx="2" fill="#f5f5f5"/>
+      <text x="740" y="738" fill="#2e5aa8" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">FETCH</text>
+
+      <rect x="72" y="620" width="200" height="96" rx="6" fill="#f5f5f5"/>
+      <rect x="72" y="620" width="200" height="96" rx="6" fill="rgba(79,93,117,0.10)" stroke="#7a8399" stroke-width="1"/>
+      <rect x="80" y="628" width="28" height="12" rx="2" fill="transparent" stroke="rgba(122,131,153,0.40)" stroke-width="0.8"/>
+      <text x="94" y="637" fill="#7a8399" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">APP</text>
+      <text x="172" y="668" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Calendar app</text>
+      <text x="172" y="688" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">one subscribe URL</text>
+
+      <rect x="376" y="624" width="280" height="88" rx="6" fill="#f5f5f5"/>
+      <rect x="376" y="624" width="280" height="88" rx="6" fill="rgba(235,108,54,0.08)" stroke="#eb6c36" stroke-width="1"/>
+      <rect x="384" y="632" width="36" height="12" rx="2" fill="transparent" stroke="rgba(235,108,54,0.50)" stroke-width="0.8"/>
+      <text x="402" y="641" fill="#eb6c36" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">WORK</text>
+      <text x="516" y="668" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">unical</text>
+      <text x="516" y="684" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">Cloudflare Worker</text>
+
+      <rect x="376" y="752" width="280" height="72" rx="6" fill="#f5f5f5"/>
+      <rect x="376" y="752" width="280" height="72" rx="6" fill="rgba(45,49,66,0.05)" stroke="#4f5d75" stroke-width="1"/>
+      <rect x="384" y="760" width="28" height="12" rx="2" fill="transparent" stroke="rgba(79,93,117,0.50)" stroke-width="0.8"/>
+      <text x="398" y="769" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">TTL</text>
+      <text x="516" y="792" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Cache</text>
+      <text x="516" y="808" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">max-age=900</text>
+
+      <rect x="848" y="584" width="336" height="80" rx="6" fill="#f5f5f5"/>
+      <rect x="848" y="584" width="336" height="80" rx="6" fill="rgba(45,49,66,0.03)" stroke="rgba(45,49,66,0.30)" stroke-width="1"/>
+      <rect x="856" y="592" width="28" height="12" rx="2" fill="transparent" stroke="rgba(45,49,66,0.22)" stroke-width="0.8"/>
+      <text x="870" y="601" fill="#7a8399" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">ICS</text>
+      <text x="1016" y="628" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Madrid</text>
+      <text x="1016" y="644" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">/ics/spain/madrid</text>
+
+      <rect x="848" y="744" width="336" height="80" rx="6" fill="#f5f5f5"/>
+      <rect x="848" y="744" width="336" height="80" rx="6" fill="rgba(45,49,66,0.03)" stroke="rgba(45,49,66,0.30)" stroke-width="1"/>
+      <rect x="856" y="752" width="28" height="12" rx="2" fill="transparent" stroke="rgba(45,49,66,0.22)" stroke-width="0.8"/>
+      <text x="870" y="761" fill="#7a8399" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">ICS</text>
+      <text x="1016" y="788" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Berlin</text>
+      <text x="1016" y="804" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">/ics/germany/berlin</text>
+
+      <!-- Legend -->
+      <line x1="48" y1="900" x2="1232" y2="900" stroke="rgba(45,49,66,0.10)" stroke-width="0.8"/>
+      <text x="48" y="924" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.14em">LEGEND</text>
+
+      <rect x="48" y="940" width="14" height="10" rx="2" fill="rgba(235,108,54,0.08)" stroke="#eb6c36" stroke-width="1"/>
+      <text x="68" y="948" fill="#4f5d75" font-size="8" font-family="'Geist', sans-serif">Focal / worker</text>
+
+      <rect x="220" y="940" width="14" height="10" rx="2" fill="rgba(79,93,117,0.10)" stroke="#7a8399" stroke-width="1"/>
+      <text x="240" y="948" fill="#4f5d75" font-size="8" font-family="'Geist', sans-serif">Client</text>
+
+      <rect x="340" y="940" width="14" height="10" rx="2" fill="rgba(45,49,66,0.03)" stroke="rgba(45,49,66,0.30)" stroke-width="1"/>
+      <text x="360" y="948" fill="#4f5d75" font-size="8" font-family="'Geist', sans-serif">External ICS</text>
+
+      <line x1="612" y1="944" x2="640" y2="944" stroke="#2e5aa8" stroke-width="1.2" marker-end="url(#arrow-link)"/>
+      <text x="648" y="948" fill="#4f5d75" font-size="8" font-family="'Geist', sans-serif">HTTP</text>
+
+      <line x1="724" y1="944" x2="752" y2="944" stroke="#2d3142" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#stop)"/>
+      <text x="760" y="948" fill="#4f5d75" font-size="8" font-family="'Geist', sans-serif">+1 / paywall</text>
+    </svg>
