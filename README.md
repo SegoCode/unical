@@ -11,7 +11,11 @@ A Cloudflare Worker that combines public ICS calendar URL into one calendar. Cal
 For example; your team is split across Madrid and Berlin. You want both public-holiday calendars on the same grid, but the app only allows one external subscribe URL. The first ICS feed connects. The second is cut off as a paid slot. Point the app at unical instead: one URL, both countries.
 
 <p align="center">
-<img src="docs/unical-architecture.svg"  width="900">
+<img src="media/demo_paywall.png">
+</p>
+
+<p align="center">
+<img src="media/demo.png">
 </p>
 
 ## Features
