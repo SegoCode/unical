@@ -5,8 +5,11 @@ import ICAL from "ical.js";
 import worker, { mergeCalendars } from "../index.ts";
 
 const load = () =>
-  ["andalucia", "japan"].map((name) => ({
-    url: `https://www.officeholidays.com/ics/${name === "andalucia" ? "spain/" : ""}${name}`,
+  [
+    ["madrid", "spain/madrid"],
+    ["berlin", "germany/berlin"],
+  ].map(([name, path]) => ({
+    url: `https://www.officeholidays.com/ics/${path}`,
     calendar: ICAL.Component.fromString(
       readFileSync(new URL(`fixtures/${name}.ics`, import.meta.url), "utf8"),
     ),
@@ -22,8 +25,8 @@ test("merges real calendars", async () => {
 
   assert.equal(events.length, expected);
   assert.equal(new Set(events.map((event) => event.getFirstPropertyValue("uid"))).size, events.length);
-  assert(summaries.every((summary) => /^Holidays: (Andalucía|Japan): /.test(summary)));
-  assert(summaries.includes("Holidays: Andalucía: Custom Day"));
+  assert(summaries.every((summary) => /^Holidays: (Madrid|Berlin): /.test(summary)));
+  assert(summaries.includes("Holidays: Madrid: Custom Day"));
   assert.equal(merged.getFirstPropertyValue("x-wr-calname"), "Holidays");
   assert.equal(merged.getFirstPropertyValue("x-wr-caldesc"), null);
 });
@@ -41,7 +44,7 @@ test("title flags", async () => {
     named
       .getAllSubcomponents("vevent")
       .map((event) => String(event.getFirstPropertyValue("summary")))
-      .includes("Holidays: Andalucía: Custom Day"),
+      .includes("Holidays: Madrid: Custom Day"),
   );
 
   const plain = load();
