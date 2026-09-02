@@ -6,7 +6,13 @@
 [![License: MIT License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](https://github.com/SegoCode/unical/blob/main/LICENSE)
 [![Bitcoin BTC](https://img.shields.io/badge/buy_me_a_coffee-BTC-F7931A?style=flat-square&logo=bitcoin&logoColor=white)](https://github.com/SegoCode/SegoCode/discussions/2)
 
-A Cloudflare Worker that combines public ICS calendar URL into one calendar. Calendar services sometimes limit the number of external calendars that an account can import or subscribe to so this gives those services one subscription URL while the Worker fetches and combines calendars behind it.
+A Cloudflare Worker that combines public ICS calendar URL into one calendar. Calendar services sometimes limit the number of external calendars that an account can import or subscribe to... so this gives those services one subscription URL while the Worker fetches and combines calendars behind it.
+
+For example; your team is split across Madrid and Berlin. You want both public-holiday calendars on the same grid, but the app only allows one external subscribe URL. The first ICS feed connects. The second is cut off as a paid slot. Point the app at unical instead: one URL, both countries.
+
+<p align="center">
+<img src="docs/unical-architecture.svg"  width="900">
+</p>
 
 ## Features
 
