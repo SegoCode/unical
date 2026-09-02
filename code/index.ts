@@ -76,7 +76,7 @@ export default {
     const response = new Response(
       await mergeCalendars(
         feeds,
-        url.searchParams.get("name") || "Unical",
+        url.searchParams.get("name") || "unical",
         url.searchParams.get("description"),
         url.searchParams.get("show_name") !== "false",
         url.searchParams.get("show_calendar") !== "false",
